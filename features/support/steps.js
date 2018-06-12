@@ -1,14 +1,12 @@
 const { Given, When, Then } = require('cucumber');
 const { expect } = require('chai');
-let routeData;
+const RouteManager = require('../../src/route_manager')
 
-const getRouteData = () => {
-    return routeData;
-}
+const routeManager = new RouteManager;
 
-const setRouteData = (data) => {
-    routeData = data;
-}
+const getRouteData = () => routeManager.getRouteData();
+
+const setRouteData = (data) => routeManager.setRouteData(data);
 
 Given('I have no configured routes', () => {
     expect(getRouteData()).to.equal(undefined);
