@@ -16,5 +16,20 @@ describe('RouteManager', () => {
         routeManager.setRouteData(data);
         expect(routeManager.getRouteData()).to.deep.equal(data);
     })
+
+    it('returns undefined if it has no time data', () => {
+        const routeManager = new RouteManager();
+        expect(routeManager.getTimesData()).to.be.undefined;
+    })
+
+    it('can add time data', () => {
+        const routeManager = new RouteManager();
+        inputTimesData = [
+            { place: "start", "leave time": "08:00", "arrive time": "09:00" },
+            { place: "end","leave time": "17:00", "arrive time": "17:45" }
+        ];
+        routeManager.setTimesData(inputTimesData);
+        expect(routeManager.getTimesData()).to.deep.equal(inputTimesData);
+    })
 })
 

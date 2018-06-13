@@ -14,10 +14,13 @@ Feature: Should I cycle to work?
             | end   | 51.9 | 35.7 |
         Then my route is saved
 
-    # Scenario: Add commuting times
-    #     Given I have pre-configured a route
-    #     When I supply times and days of my commute
-    #     Then my route has assacoated commute times
+    Scenario: Add commuting times
+        Given I have pre-configured a route
+        When I supply the following times of my commute
+            | place | leave time | arrive time | 
+            |start  | 08:00      | 09:00       | 
+            | end   | 17:00      | 17:45       |
+        Then my route has associated commute times
 
         # what's the weather along my route like today?
 
